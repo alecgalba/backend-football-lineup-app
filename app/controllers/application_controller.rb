@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
   before_action :authorized
 
   def issue_token(payload)
-    JWT.encode(payload, "supersecretcode")
+    JWT.encode(payload, "myverysecretcode")
   end
 
   def current_user
@@ -26,8 +26,8 @@ class ApplicationController < ActionController::API
     !!current_user
   end
 
-  def authorized
+  # def authorized
     # render json: {message: "Not welcome" }, status: 401 unless logged_in?
-  end
+  # end
 
 end
