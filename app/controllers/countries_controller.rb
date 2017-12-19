@@ -20,7 +20,6 @@ class CountriesController < ApplicationController
   end
 
   def search
-    apiKey =  = params[:search]
     response = RestClient::Request.execute(
       method: :get,
       url: "https://apifootball.com/api/?action=get_countries&APIkey=dd1844f2b006f50f76c6feb71d92f26b5331d8f173c9e09fba716702d7729d48",
@@ -31,5 +30,6 @@ class CountriesController < ApplicationController
     )
     results = JSON.parse(response)
     render json: results
+  end
 
 end
