@@ -5,7 +5,7 @@ const userId = localStorage.getItem("id")
 
 export function fetchedCompetitions(competitions) {
   return {
-    type: "FETCHED_MY_COMPETITIONS",
+    type: "FETCHED_COMPETITIONS",
     payload: competitions,
   }
 };
