@@ -8,7 +8,7 @@ export function fetchingResults() {
 
 export function fetchedResults(results) {
   return {
-    type: "FECTHED_RESULTS",
+    type: "FETCHED_RESULTS",
     payload: results,
   }
 };
