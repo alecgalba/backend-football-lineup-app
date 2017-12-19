@@ -40,7 +40,7 @@ class Login extends React.Component {
           <div className="column">
             <p></p>
             <h2 id="login-header" className="ui teal image header">
-              <div className="content">LogIn To Your Account</div>
+              <div className="content">Log In To Your Account</div>
             </h2>
             <form className="ui large form">
               <div className="ui stacked segment">

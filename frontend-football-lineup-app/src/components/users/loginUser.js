@@ -15,7 +15,7 @@ export function loginUser(loginParams) {
     });
 };
 
-export function signupUsers(signupParams) {
+export function signupUser(signupParams) {
   const body = JSON.stringify(signupParams);
   return fetch(`${baseURL}/signup`, {
     method: 'post',
