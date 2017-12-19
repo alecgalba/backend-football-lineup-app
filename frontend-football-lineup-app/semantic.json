@@ -1,5 +1,5 @@
 {
-  "base": "frontend-football-lineup-app",
+  "base": "kickoff-app",
   "paths": {
     "source": {
       "config": "src/theme.config",
