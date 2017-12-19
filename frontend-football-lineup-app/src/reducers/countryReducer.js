@@ -1,4 +1,4 @@
-function countryReducer(state = { ifFetching: false, myCountries: []}, action) {
+function countryReducer(state = { isFetching: false, myCountries: []}, action) {
   switch (action.type) {
 
     case "REMOVE_COUNTRY":
