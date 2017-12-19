@@ -1,4 +1,4 @@
-class UserCountrySerializer < ActiveModel::Serializer
+class UserCompetitionSerializer < ActiveModel::Serializer
   attributes :id, :user_id, :competition_id
 
   belongs_to :user
