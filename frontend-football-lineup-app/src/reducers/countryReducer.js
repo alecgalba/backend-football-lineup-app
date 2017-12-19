@@ -12,7 +12,7 @@ function countryReducer(state = { ifFetching: false, myCountries: []}, action) {
 
     default:
       return state
-  }
-}
+  };
+};
 
-export default countryReducer
+export default countryReducer;
