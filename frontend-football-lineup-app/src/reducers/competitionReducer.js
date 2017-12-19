@@ -1,4 +1,4 @@
-function competitionReducer(state = { isFetching: false, myCompetitions: [], countryCompetitions: []}, action) {
+function competitionReducer(state = { isFetching: false, myCompetitions: []}, action) {
   switch (action.type) {
 
     case "FETCHING_COMPETITIONS":
