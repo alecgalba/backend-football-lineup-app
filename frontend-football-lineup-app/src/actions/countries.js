@@ -1,6 +1,6 @@
 import moment from 'moment';
 import baseURL from '../services/url';
-const token = localStorage.getItem("jwtToekn")
+const token = localStorage.getItem("jwtToken")
 const userId = localStorage.getItem("id")
 
 export function fetchingCountries() {
