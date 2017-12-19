@@ -63,7 +63,7 @@ export function removeEvent(id) {
   }
 };
 
-export function fetchKickOff(id) {
+export function fetchMyKickOff(id) {
   return function (dispatch) {
     dispatch(fetchingCompetitions())
     fetch(`${baseURL}/${userId}/events`, {
