@@ -1,4 +1,4 @@
-class UserSerializer < ActiveModel::Serializer
+class CountrySerializer < ActiveModel::Serializer
   attributes :id, :country_id, :country_name
 
   has_many :user_competitions, dependent: :destroy
