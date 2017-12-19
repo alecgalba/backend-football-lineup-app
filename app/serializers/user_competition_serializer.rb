@@ -1,6 +1,6 @@
 class UserCountrySerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :country_id
+  attributes :id, :user_id, :competition_id
 
   belongs_to :user
-  belongs_to :country
+  belongs_to :competition
 end
