@@ -29,7 +29,7 @@ export function searchCountries(search) {
       headers: {
         'Acccept': 'application/json',
         'Content-Type': 'application/json',
-        'Authoriztion': `Bearer ${token}`,
+        'Authorization': `Bearer ${token}`,
       },
       'body': body,
     })
