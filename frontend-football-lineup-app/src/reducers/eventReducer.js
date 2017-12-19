@@ -1,4 +1,4 @@
-function eventReducer(state = { isFetching: false, myEvents: [], competitionEvents: []}, action) {
+function eventReducer(state = { isFetching: false, myEvents: []}, action) {
   switch (action.type) {
 
     case "FETCHING_EVENTS":
