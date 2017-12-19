@@ -10,7 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218204132) do
+ActiveRecord::Schema.define(version: 20171219001423) do
+
+  create_table "competitions", force: :cascade do |t|
+    t.string "country_id"
+    t.string "country_name"
+    t.string "league_id"
+    t.string "league_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "country_id"
+    t.string "country_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "match_id"
+    t.string "country_id"
+    t.string "country_name"
+    t.string "league_id"
+    t.string "league_name"
+    t.string "match_date"
+    t.string "match_status"
+    t.string "match_time"
+    t.string "match_hometeam_name"
+    t.string "match_hometeam_score"
+    t.string "match_awayteam_name"
+    t.string "match_awayteam_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_countries", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "show_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
