@@ -4,7 +4,7 @@ import { addCompetition, removeCompetition, fetchKickOff } from '../../actions/c
 import { Card, Button, Image, Transition } from 'semantic-ui-react';
 import moment from 'moment';
 
-class CompetitionItem extends Recat.Component {
+class CompetitionItem extends React.Component {
 
   addCompetition = (e) => {
     e.preventDefault()
