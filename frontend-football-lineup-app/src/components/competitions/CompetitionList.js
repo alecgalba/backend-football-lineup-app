@@ -39,7 +39,7 @@ class CompetitionList extends React.Component {
 
   render() {
     let competitions = ""
-    if (this.state.displayedItems && this.props.myCompetitions) {competitions = this.state.displayedItems.map( competition => <CompetitionItem key={competition.id} competition={competition} countryId={this.props.id} added={this.props.myCompetitions.filter(myComp => myComp.id == episode.id)} /> )}
+    if (this.state.displayedItems && this.props.myCompetitions) {competitions = this.state.displayedItems.map( competition => <CompetitionItem key={competition.id} competition={competition} countryId={this.props.id} added={this.props.myCompetitions.filter(myComp => myComp.id == competition.id)} /> )}
 
     return(
       <div>
