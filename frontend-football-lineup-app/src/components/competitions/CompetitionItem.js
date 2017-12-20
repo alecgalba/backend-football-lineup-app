@@ -6,35 +6,35 @@ import moment from 'moment';
 
 class CompetitionItem extends React.Component {
 
-  addCompetition = (e) => {
+  addEvent = (e) => {
     e.preventDefault()
-    let cp = this.props.competition
-    let id = this.props.countryId
-    const competition = JSON.stringify({competition: cp, country_id: id})
-    this.props.addCompetition(competition)
+    let ev = this.props.event
+    let id = this.props.competitionId
+    const event = JSON.stringify({event: ev, competition_id: id})
+    this.props.addEvent(event)
   }
 
-  removeCompetition = (e) => {
+  removeEvent = (e) => {
     e.preventDefault()
-    const id = JSON.stringify({competition_id: this.props.competition.id})
-    this.props.removeCompetition(id)
+    const id = JSON.stringify({event_id: this.props.event.id})
+    this.props.removeEvent(id)
   }
 
   render() {
-    const cp = this.props.competition
+    const ev = this.props.event
 
     return(
       <Transition animation='fly left' duration={1000} transitionOnMount={true}>
       <Card centered={true}>
         <Card.Content>
-          <Card.Header as='h3'>{cp.league_name}</Card.Header>
-          <Card.Description as='p'>{cp.hometeam_name} vs. {cp.awayteam_name}</Card.Description>
-          <Card.Description as='p'>Day: {cp.match_date} Time: {cp.match_time}<Card.Description>
+          <Card.Header as='h3'>{ev.league_name}</Card.Header>
+          <Card.Description as='p'>{ev.hometeam_name} vs. {ev.awayteam_name}</Card.Description>
+          <Card.Description as='p'>Day: {ev.match_date} Time: {ev.match_time}<Card.Description>
           <p></p>
         </Card.Content>
         <Card.Content extra>
           <div>
-            {this.props.added.length ? <Button basic color='yellow' onClick={this.removeCompetition} content='Remove' icon='remove from calendar'/> : <Button basic color='olive' onClick={this.addCompetition} content='My KickOff' icon='add to calendar' /> }
+            {this.props.added.length ? <Button basic color='yellow' onClick={this.removeEvent} content='Remove' icon='remove from calendar'/> : <Button basic color='olive' onClick={this.addEvent} content='My KickOff' icon='add to calendar' /> }
           </div>
         </Card.Content>
       </Card>
@@ -45,22 +45,22 @@ class CompetitionItem extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addCompetition: (competition) => {
-      dispatch(addCompetition(competition))
+    addEvent: (event) => {
+      dispatch(addEvent(event))
     },
-    removeCompetition: (id) => {
-      dispatch(removeCompetition(id))
+    removeEvent: (id) => {
+      dispatch(removeEvent(id))
     },
-    fetchKickOff: (id) => {
-      dispatch(fetchKickOff(id))
+    fetchMyKickOff: (id) => {
+      dispatch(fetchMyKickOff(id))
     }
   }
 }
 
 function mapStateToProps(state) {
   return {
-    myCompetitions: state.competition.myCompetitions,
-    isFetching: state.competition.isFetching
+    myEvents: state.event.myEvents,
+    isFetching: state.event.isFetching
   }
 }
 
