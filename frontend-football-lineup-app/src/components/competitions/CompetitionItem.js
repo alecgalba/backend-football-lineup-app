@@ -33,7 +33,7 @@ class CompetitionItem extends Recat.Component {
           <p></p>
         </Card.Content>
         <Card.Content extra>
-          <div className='ui two buttons'>
+          <div>
             {this.props.added.length ? <Button basic color='yellow' onClick={this.removeCompetition} content='Remove' icon='remove from calendar'/> : <Button basic color='olive' onClick={this.addCompetition} content='My KickOff' icon='add to calendar' /> }
           </div>
         </Card.Content>
