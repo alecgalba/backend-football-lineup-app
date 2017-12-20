@@ -64,4 +64,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(CompetitionList)
+export default connect(mapStateToProps)(EventList)
