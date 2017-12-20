@@ -11,14 +11,14 @@ class CompetitionContainer extends React.Component {
   };
 
   render() {
-    const name = this.props.match.params.league_name
+    const name = this.props.match.params.country_name
     const id = this.props.match.params.id
     return(
       <div>
         <br />
         <Divider horizontal><h2>Competitions</h2></Divider>
           {this.props.compFetching ? <Loader active inline='centered' size='large' content='Working'/> : null }
-          <CompetitionList country={country_name} id={id} />
+          <CompetitionList country={name} id={id} />
       </div>
     )
   }
