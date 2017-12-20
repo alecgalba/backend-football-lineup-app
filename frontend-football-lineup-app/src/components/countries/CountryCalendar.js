@@ -71,34 +71,66 @@ class ShowCalendar extends React.Component {
         id: event.id
       }
     })
+    let ids = this.props.myEvents.map(event => event.id)
 
     return(
       <div>
-        <br />
-      <Divider horizontal><h1>My Kickoff</h1></Divider>
-      <Transition animation='fade' duration={800} transitionOnMount={true}>
-        <BigCalendar
-          popup
-          onSelectEvent={this.country(competition)}
-          events={events}
-          views={['day', 'week', 'agenda']}
-          defaultView='day'
-          startAccessor='startDate'
-          endAccessor='endDate'
-          step={7.5}
-          min={moment('10:00am', 'h:mma').toDate()}
-          max={moment('11:59pm', 'h:mma').toDate()}
-        />
-      </Transition>
+          <br />
+        <Divider horizontal><h1>My Kickoff</h1></Divider>
+        <Transition animation='fade' duration={800} transitionOnMount={true}>
+          <BigCalendar
+            popup
+            onSelectEvent={this.country(competition)}
+            events={events}
+            views={['day', 'week', 'agenda']}
+            defaultView='day'
+            startAccessor='startDate'
+            endAccessor='endDate'
+            step={7.5}
+            min={moment('10:00am', 'h:mma').toDate()}
+            max={moment('11:59pm', 'h:mma').toDate()}
+          />
+        </Transition>
 
-      <Modal size='tiny' event={event} open={open} onClose={this.close}>
-        <Modal.Header>
-          <{ competition !== undefined ? competition.league_name : null }
-        </Modal.Header>
-        <Modal.Content>
-        </Modal.Content>
-      </Modal>
+        <Modal size='tiny' event={event} open={open} onClose={this.close}>
+          <Modal.Header>
+            <{ competition !== undefined ? competition.league_name : null }
+          </Modal.Header>
+          <Modal.Content>
+            <h4>{ event !== undefined ? `${event.hometeam_name} - ${event.awayteam_name}` : 'No Data Available' }</h4>
+            <h5>{ event !== undefined ? `${moment(event.startDate).format('h:mm a')} - ${moment(event.endDate).format('h:mm a')}` : 'No Data Available' }</h5>
+          </Modal.Content>
+          <Modal.Actions>
+            { event !== undefined ? ( !ids.includes(event.id) ? <Button icon='remove' labelPosition='right' onClick={this.close} content='Close'/> : <Button negative onClick={this.handleRemove} labelPosition='right' episode={episode} content='Remove from My KickOff'/> ) : null}
+          </Modal.Actions>
+        </Modal>
       </div>
     )
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    myEvents: state.competition.myEvents
+  }
+}
+
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addCountry: (id) => {
+      dispatch(addCountry(id))
+    },
+    addCompetition: (id) => {
+      dispatch(addCompetition(competition))
+    },
+    removeCompetition: (id) => {
+      dispatch(removeCompetition(id))
+    },
+    fetchKickOff: (id) => {
+      dispatch(fetchKickOff(id))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CountryCalendar)
