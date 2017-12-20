@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import DashboardLineupList from './DashboardLineupList';
+import DashboardKickOffList from './DashboardKickOffList';
 import { fetchKickOff } from '../../actions/competitions';
 import { fetchMyKickOff } from '../../actions/events';
 import { Divider, Loader } from 'semantic-ui-react';
@@ -18,7 +18,7 @@ class DashboardContainer extends React.Component {
       <div>
         <br />
         <Divider horizontal ><h1>My KickOff</h1></Divider>
-          {this.props.isFetching ? <Loader active inline='centered' size='large' content='Working'/> : <DashboardLineupList /> }
+          {this.props.isFetching ? <Loader active inline='centered' size='large' content='Working'/> : <DashboardKickOffList /> }
       </div>
     )
   }
