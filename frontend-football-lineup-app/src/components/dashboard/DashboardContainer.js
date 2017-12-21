@@ -17,7 +17,7 @@ class DashboardContainer extends React.Component {
     return(
       <div>
         <br />
-        <Divider horizontal ><h1>My KickOff</h1></Divider>
+        <Divider horizontal ><h1>My KickOff Tonight</h1></Divider>
           {this.props.isFetching ? <Loader active inline='centered' size='large' content='Working'/> : <DashboardKickOffList /> }
       </div>
     )
